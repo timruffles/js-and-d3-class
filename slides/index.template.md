@@ -4,7 +4,6 @@ core-javascript
 
 modules
 variables
-destructuring
 primitives
 
 quality
@@ -19,10 +18,7 @@ dicts
 async
 promises
 
-generators
-
 objects
-generators-objects
 
 specifying behaviour
 

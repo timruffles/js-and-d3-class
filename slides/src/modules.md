@@ -9,135 +9,29 @@ Sandii Metz
 
 ## Lots of small bits
 
-## AKA modules!
-
-## Simplest
-
-```javascript
-// greetings.en.js
-export var informal = "hi";
-```
-
-```javascript
-// run.js
-import { informal } from "./greetings.en";
-
-console.log(informal + " amy") // hi amy
-```
-
-## Default export
-
-```javascript
-// greetings.es.js
-export default "hola";
-```
-
-```javascript
-// greetings.es.js
-var greeting = "hola";
-export default greeting;
-```
-
-```javascript
-// greetings.es.js
-var greeting = "hola";
-export { greeting as default };
-```
-
-```javascript
-// run.js
-import defaultSpanish from "./greetings.es";
-
-console.log(defaultSpanish + " amy"); // prints 'hola amy'
-```
-
-## Named exports, and renaming
-
-```javascript
-var cake = "sponge";
-var tea = "darjeeling";
-
-
-export { tea, cake as treat };
-```
-
-## Import default, and renaming
-
-```javascript
-import { tea as drink, treat } from "./teaParty";
-```
-
-```javascript
-import { default as host } from "./teaParty";
-```
-
-```javascript
-// default + values
-import party, { tea, treat } from "./teaParty";
-```
-
-## Import as object
-
-```javascript
-import * as party from "./teaParty";
-
-var cake = party.cake;
-
-export { party as default, cake as treat };
-```
-
-## Don't worry
-
-- just learn a few - you are only saving a couple of keystrokes
-
-## Let's have a go!
-{exercise:true}
-
-    exercises/modules;
-
 ## CommonJS
 
 Node's module system
 
-## Very comparable syntax
-
-
 ## Export
 
 ```javascript
-// export { mainMethod as default }
-module.exports = exports = mainMethod;
+// A.js
+module.exports.someFunction = function() {
+}
 
-// export function someFunction() {}
-exports.someFunction = function() {}
 
-function mainMethod() {
-} 
+module.exports.A_CONSTANT = "hi there";
 ```
-
-## Import
 
 ```javascript
-// relative or absolute path
-var myModule = require("./my/module");
+// B.js
+var myModule = require("./A.js");
+
+// myModule is the module.exports from A.js
+console.log(myModule.A_CONSTANT) // "hi there"
 ```
 
-## Import
-
-```javascript
-
-// what's this?
-var aModule = require("./some/other/module");
-
-// third party?
-var fs = require("fs");
-var readFile = fs.readFile;
-
-// third party?
-var someModule = require("lodash");
-```
-
-- how can we tell standard lib vs 3rd party?
 
 ## Third-party code
 
@@ -150,6 +44,59 @@ var fs = require("fs");
 // and parent directories
 var anNpmModule = require("from-npm");
 ```
+
+## Third-party vs local code
+
+```javascript
+
+// either standard library or node_modules
+var fs = require("fs");
+
+// relative path
+var ourCode = require("../path/to/code");
+
+// absolute path
+var moreCode = require("/path/to/code");
+```
+
+## Export shorthand
+
+```javascript
+// A.js
+exports.someFunction = function() {
+}
+
+exports.A_CONSTANT = "hi there";
+```
+
+```javascript
+// B.js
+var myModule = require("./A.js");
+
+// myModule is the module.exports from A.js
+console.log(myModule.A_CONSTANT) // "hi there"
+```
+
+## Replacing the default export
+
+```javascript
+// A.js
+module.exports.mainFunction = exports = function main(path) {
+}
+
+exports.A_CONSTANT = "hi there";
+
+```
+
+```javascript
+// B.js
+var myModule = require("./A.js");
+
+console.log(myModule.toString) // "function main(path) { ...
+
+console.log(myModule.A_CONSTANT) // "hi there"
+```
+
 
 ## export
 
