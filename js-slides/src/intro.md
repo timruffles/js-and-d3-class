@@ -1,11 +1,10 @@
-## Advanced Javascript
-{notitle:1}
+## JS for Visualisation
 
-<img src="media/title.png">
+@timruffles
 
 ## Get setup
 
-- [github.com/timruffles/js-class](https://www.github.com/timruffles/js-class)
+- [github.com/timruffles/js-and-d3-class](https://www.github.com/timruffles/js-and-d3-class)
 
 <p contenteditable>WiFi: </p>
 
