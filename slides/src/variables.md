@@ -1,36 +1,6 @@
 ## Variables
 {title:1}
 
-## Two ages
-
-- Pre-ES.next: `var`
-- Post: `let`, `const`
-
-## `var`
-
-```javascript
-var someVariable;
-var anotherVariable = "hello";
-```
-
-## `undefined` vs undeclared
-
-## `undefiend`
-
-```javascript
-var notDefined;
-
-console.log(notDefined); // ?
-```
-
-## Undeclared
-
-```javascript
-var someVar;
-
-console.log(smeVar); // typo, what happens??
-```
-
 ## `const`
 {es6:1}
 
@@ -94,7 +64,19 @@ console.log(i);
 
 ## What about `var`?
 
+
+
+## `var`
+
+```javascript
+var someVariable;
+var anotherVariable = "hello";
+```
+
+
+
 ## `var` = function scoped
+
 
 ## Function scope
 
@@ -159,6 +141,24 @@ this; // sloppy, outside functions
 
 window; // browser
 global; // node
+```
+
+## `undefined` vs undeclared
+
+## `undefiend`
+
+```javascript
+var notDefined;
+
+console.log(notDefined); // ?
+```
+
+## Undeclared
+
+```javascript
+var someVar;
+
+console.log(smeVar); // typo, what happens??
 ```
 
 ## Exercise!

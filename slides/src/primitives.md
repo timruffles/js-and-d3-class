@@ -34,70 +34,23 @@ var html = \`
 \`;
 ```
 
-## Boolean
-
-```javascript
-var t = true;
-```
-
-## Quiz: truthy vs falsy
-
-```javascript
-var empty = Boolean(""); // true
-
-Boolean("hello"); // ?
-
-Boolean(0); // ?
-Boolean(1); // ?
-Boolean(7); // ?
-
-Boolean(true); // ?
-```
-
-
-## Quiz
-
-```javascript
-var booly = new Boolean(false);
-
-Boolean(booly);
-```
-
-## Rule: never wrap primitives
-{rule:1}
-
-```javascript
-// ARRRRRGGGHHHH!!!!!
-var x = new String("");
-var 1 = new Number("");
-```
-
 ## Rule: use `Boolean`
 {rule:1}
 
 ```javascript
-var x = "";
-var coerced = Boolean(x);
+var name = "";
+var coerced = Boolean(name);
 
-// yes, you understand it, but does everyone?
-var shortCoerce = !!x;
+console.log(coerced) // false
+console.log(Boolean(17)) // true
 
 // NOOOOOOOOOO - never wrap primitives
 var evil = new Boolean(false);
+if(evil) {
+  console.log("I told you to avoid new with primitives")
+}
 ```
 
-## `undefined` and `null`
-
-```javascript
-var x; // ?
-
-var y = null;
-```
-
-## `null` & `undefined`
-
-- A nuisance since 1995.
-- I'd stick to `undefined`
 
 ## Comparison
 {subtitle:true}
@@ -112,6 +65,22 @@ var y = null;
 ## But *ONE* place to use `==`
 
 ## Handling `null` and `undefined`
+
+
+## `undefined` and `null`
+
+```javascript
+var x; // ?
+
+var y = null;
+```
+
+## `null` & `undefined`
+
+- A nuisance since 1995.
+- I'd stick to `undefined`
+
+## `==` to the rescue!
 
 ```
 var undefinedNotEqeqeqNull = undefined === null; // false

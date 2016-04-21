@@ -111,58 +111,6 @@ instance.render();
 instance._renderHelper(); // no error
 ```
 
-## Stricter privacy
-
-```javascript
-const privates = new WeakMap;
-
-class Counter {
-  constructor() {
-    privates.set(this, { count: 0 })
-  }
-
-  get() {
-    return privates.get(this).count;
-  }
-
-  add() {
-    privates.get(this).count += 1;
-  }
-}
-
-const instance = new Counter(/\* ... \*/);
-
-instance.add();
-instance.add();
-console.log(instance.get()); // 2
-```
-
-## `WeakMap`?
-
-- *keys* are available to garbage collect (GC)
-- if only weak references remain, available for GC
-- keys must be non-primitives
-
-## `WeakMap` e.g
-
-```javascript
-const map = new Map;
-const weak = new WeakMap;
-
-const A = {};
-const B = {};
-const C = {};
-
-map.set(A, "");
-weak.set(B, "");
-
-weak.set(B, "");
-weak.set(C, "");
-
-global.map = map;
-global.weak = weak;
-```
-
 ## Inheritence
 
 ```javascript
@@ -297,56 +245,6 @@ function getProperty(object, prop) {
 ```
 
 
-## So... properties
-
-```javascript
-class Widget {
-}
-
-// I'm bored of initialising in constructor!
-Widget.prototype.letters = [];
-
-const A = new Widget;
-const B = new Widget;
-A.letters.push("a");
-
-console.log(B.letters) // ["a"]
-```
-
-<ul>
-  <li>What went wrong?</li>
-  <li class=fragment>All instances share same prototype property!</li>
-</ul>
-
-## Creating objects with prototype
-
-##     
-{notitle:1}
-
-```javascript
-const sturcture = {
-  squareArea: function() {
-    return this.width * this.height;
-  },
-};
-
-const house = Object.create(structure);
-Object.assign(house, {
-  width: 5,
-  height: 10,
-});
-
-const shed = Object.create(structure);
-Object.assign(shed, {
-  width: 2,
-  height: 2,
-});
-
-house.squareArea() // 50
-shed.squareArea() // 4
-```
-
-
 ## `this` on invocation
 {code:1}
 
@@ -412,73 +310,6 @@ var someObject = {
   // ...
 };
 ```
-
-## `fn.bind(thisValue)`
-{code:1}
-
-```javascript
-var someObject = {
-  // ...
-  listen: function(el) {
-    // .bind returns a new fn, as if bound to this via closure
-    el.addEventListener("click", this.handle.bind(this))
-  },
-  // ...
-};
-```
-
-## Writing `bind`
-
-```javascript
-function bind(fn, thisValue) {
-  return function() {
-    return fn.apply(thisValue, arguments);
-  }
-}
-```
-
-## Via `new`
-{notitle:1}
-
-```javascript
-function Structure(width, height) {
-  this.width = width;
-  this.height = height;
-}
-
-Structure.prototype = {
-  squareArea: function() {
-    return this.width * this.height;
-  },
-};
-
-function House(w, h, bedrooms) {
-  Structure.call(this, w, h);
-  this.bedrooms = bedrooms;
-}
-
-House.prototype = new Structure;
-House.prototype.sleeps = function() {
-  return this.bedrooms.reduce((s,b) => s + b.sleeps, 0)
-};
-```
-
-## `.call(thisValue, ...args)`
-
-```javascript
-function House(w, h, bedrooms) {
-  Structure.call(this, w, h);
-  this.bedrooms = bedrooms;
-}
-
-
-function Structure(width, height) {
-  // our 'this' value when we call Structure.call above
-  // will be an object { __proto__: House.prototype }
-  this.width = width;
-}
-```
-
 
 ## Let's try!
 {exercise:true}
