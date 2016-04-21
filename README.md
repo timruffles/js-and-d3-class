@@ -1,6 +1,6 @@
 # JS for visualisation
 
-[![Build Status](https://travis-ci.org/timruffles/js-d3-class.svg?branch=master)](https://travis-ci.org/timruffles/js-class)
+[![Build Status](https://travis-ci.org/timruffles/js-and-d3-class.svg?branch=master)](https://travis-ci.org/timruffles/js-and-d3-class)
 
 ## Install
 
