@@ -9,25 +9,13 @@ tick();
 
 function render() {
   // TODO select elements
-  var update = d3.select("#bind-to-me")
-      .selectAll("li")
-      .data(data)
-      .text(function(d) {
-        return d.text;
-      })
+  d3.select("#bind-to-me");
+  //
+  // TODO handle existing elements
   //
   // TODO handle new elements
-  var enter = update.enter();
-  enter.append("li")
-    .text(function(d) {
-      return d.text;
-    })
-
   //
   // TODO elements that need to leave
-  var exit = update.exit();
-
-  exit.remove();
 }
 
 function tick() {
@@ -47,5 +35,5 @@ function tick() {
 
     render();
 
-  }, 100);
+  }, 1000);
 }

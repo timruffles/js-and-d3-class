@@ -22,14 +22,7 @@ function vis(el,dataRoot) {
   // - diameter
   // - how it finds children nodes
   // - how it determines the size of a node (body.length)
-  var layout = d3.layout.pack()
-    .size([diameter, diameter])
-    .children(function(d) {
-      return d.replies;
-    })
-    .value(function(d) {
-      return d.body.length;
-    })
+  var layout = d3.layout.pack();
        
   // this attaches our data to the svg, and then binds the nodes
   var nodes = svg
@@ -46,29 +39,20 @@ function vis(el,dataRoot) {
     .append("circle")
     .attr("r",0);
   
-  var updateEnter = nodes
-    .classed("leaf", isLeaf)
+  nodes
     // TODO set the 'leaf` class on nodes that are a leaf
     .transition()
     .attr("transform",function(d) {
 
       // TODO set the transform according to the position attributes
       // the pack layout provides us
-      var transform = "translate(" + d.x + ", " + d.y + ")";
+      var transform = "";
 
       return transform;
     })
-    .select("circle")
-    .attr("r", function(d) {
-      // TODO set the radius on the circles - make sure we're working with circles
-      return d.r;
-    })
+    // TODO set the radius on the circles - make sure we're working with circles
     
-  function isLeaf(d) {
-    return d.children.length === 0;
-  }
 
-  nodes.exit().remove();
   // TODO handle exiting nodes
 }
 

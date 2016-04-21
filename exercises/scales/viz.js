@@ -1,3 +1,7 @@
+// TODO there's a bit of a hitch with this visualisation:
+// we can't really see the data in an unscaled state.
+//
+// How can we fix this?
 
 visualise()
 
@@ -8,24 +12,24 @@ function visualise() {
   var height = document.body.clientHeight;
 
   var data = [
-    {name: "d3", popularity: 0.2},
-    {name: "jquery", popularity: 1},
-    {name: "dojo", popularity: 1e-9},
+    {name: "average person", wealth: 10000},
+    {name: "lottery winner", wealth: 1e6},
+    {name: "gates", wealth: 72e9},
   ]
 
-  var minMax = [10, width / data.length / 4];
+  var minMax = [10, width / data.length / 2];
 
-  // TODO
-  var popularityToRadius = d3.scale.linear()
-    .domain(d3.extent(data, function(d) { return d.popularity }))
-    .range(minMax);
+  // TODO you're responsible for setting up the scales
+  var wealthToRadius = d3.scale.linear()
+  // TODO set the domain to the extent of the wealth values
+  // TODO set the range to minMax
 
   // TODO copy the previous scale but change its output range
   // to work on colors
-  var popularityToColor = popularityToRadius
-    .copy()
-    .range(["hsl(0, 80%, 80%)","hsl(240, 80%, 80%)"]);
+  var wealthToColor = wealthToRadius;
 
+  // TODO is there a different type of scale we could
+  // use to get another view of the data?
 
   // just read below this, no modifications necessary
   var svg = d3.select("svg")
@@ -44,9 +48,9 @@ function visualise() {
       return (i + 1) * 250
     })
     .attr("r",function(d) {
-      return popularityToRadius(d.popularity)
+      return wealthToRadius(d.wealth)
     })
     .style("fill",function(datum) {
-      return popularityToColor(datum.popularity)
+      return wealthToColor(datum.wealth)
     })
 }
