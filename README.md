@@ -1,7 +1,6 @@
-# Advanced JS Class
+# JS for visualisation
 
-[![Build Status](https://travis-ci.org/timruffles/js-class.svg?branch=master)](https://travis-ci.org/timruffles/js-class)
-[![Windows Build status](https://ci.appveyor.com/api/projects/status/tv14tusk6pd7d36r?svg=true)](https://ci.appveyor.com/project/timruffles/js-class)
+[![Build Status](https://travis-ci.org/timruffles/js-d3-class.svg?branch=master)](https://travis-ci.org/timruffles/js-class)
 
 ## Install
 
@@ -12,8 +11,7 @@ npm install
 
 ## Weclome
 
-
-It's a priviledge to welcome you to the Advanced JS Class! Today we're going to look at getting the best from the JS of today and the near future: ES6 and beyond.
+Today we're going to look at getting the best from JS & D3.
 
 The class is exercise driven, so it's worth having a glance over the below to learn how to run the exercises.
 
@@ -21,7 +19,8 @@ The class is exercise driven, so it's worth having a glance over the below to le
 
 ```sh
 # here are the slides, in HTML format, yours to take home and enjoy! simply open slides/index.html in your favourite brower
-./slides 
+./js-slides 
+./d3-slides 
 
 # whenever we're working on an exercise together, I'll point you to an exercise subfolder
 ./exercises
@@ -31,7 +30,7 @@ The class is exercise driven, so it's worth having a glance over the below to le
 
 Each exercise is a subfolder. You check your work by navigating to the folder in your terminal and running `npm run verify`.
 
-Some exercises have an `exercise.js` file. Some have a `start-here.js` file where we right tests - this is for learning about TDD (test-driven development).
+The JS exercises have an `exercise.js` file. Some have a `start-here.js` file where we right tests - this is for learning about TDD (test-driven development).
 
 So, for instance, to run the first exercise:
 
@@ -41,4 +40,6 @@ cd exercises/modules
 
 node verify.js
 ```
+
+The D3 exercises all run in the browser. You'll mostly be editing the `viz.js` file in each d3 exercise folder.
 

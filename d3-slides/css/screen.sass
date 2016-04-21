@@ -1,0 +1,171 @@
+@import normalise
+@import prettify
+
+$blue: hsl(195, 100%, 50%)
+$orange: hsl(27, 100%, 54%)
+$yellow: hsl(60, 100%, 51%)
+$green: hsl(85, 100%, 58%)
+
+@font-face
+  font-family: "Exo"
+  src: url(./fonts/Exo-Light.ttf)
+  font-weight: 400
+
+
+@font-face
+  font-family: Exo
+  src: url(./fonts/Exo-Thin.ttf)
+  font-weight: 100
+
+
+@font-face
+  font-family: Exo
+  src: url(fonts/Exo-ExtraLight.ttf)
+  font-weight: 200
+
+
+@font-face
+  font-family: Exo
+  src: url(fonts/Exo-Regular.ttf)
+  font-weight: 800
+
+
+body
+  box-sizing: border-box
+  background: rgb(250, 250, 250)
+  color: #222
+  font-family: Exo
+  font-size: 48px
+
+h1, h2, h3
+  font-weight: 200
+  text-align: left
+  color: #19B8D2
+  line-height: 1.125em
+  margin-bottom: 0.25em
+
+.hl
+  color: #910000
+  font-weight: 600
+
+p, h3, h4, h5, h6
+  padding-left: 2.5%
+  padding-right: 2.5%
+
+h1,h2,h3,h4,h5,h6,h7,h8
+  font-weight: 100
+
+h1
+  text-align: center
+
+h2
+  text-align: center
+
+section
+  display: none
+  &.displayed
+    display: block
+    position: absolute
+    top: 0
+    bottom: 0
+    width: 100%
+
+section:first-child
+  padding-top: 2.5%
+
+ul
+  width: 75%
+  margin-left: auto
+  margin-right: auto
+  text-align: left
+
+h2
+  width: 75%
+  margin-left: auto
+  margin-right: auto
+
+pre
+  font-size: 0.6em
+  text-align: left
+  margin: 5% 10%
+
+.has-commentary
+  margin-bottom: 5%
+  margin-top: 5%
+  font-size: 0.8em
+
+.code-commentary
+  margin-left: 10%
+  font-size: .8em
+  text-align: left
+
+ul.code-commentary, ol.code-commentary
+  width: auto
+
+hr
+  width: 40%
+  margin: 0 auto
+
+.minor
+  font-size: 0.8em
+
+li
+  margin-bottom: 0.25em
+
+table
+  width: 90%
+  margin: 0 auto
+  font-size: 0.5em
+  font-weight: 100
+
+  td
+    padding-bottom: .5em
+    padding-left: .5em
+
+pre
+  background: rgba(255,255,255,0.5)
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3)
+  padding: .5em
+
+a
+  font-family: "Helvetica Neue", sans-serif
+  font-weight: 400
+  text-decoration: none
+  color: #910000
+
+$colours: crimson, darkorange, gold, greenyellow, mediumpurple, violet
+@for $i from 1 through length($colours)
+  .colour#{$i}
+    color: nth($colours,$i)
+
+.subtitle h2
+  font-size: 2.5em
+
+.twitter
+  text-align: center
+  a
+    color: #1db4f1
+
+#join-demo
+  font-size: 2rem
+  overflow: auto
+  padding: 2em
+  .context
+    height: 6em
+  .strip
+    padding: 4px
+    margin: 4px
+    background: rgba(255, 255, 255, 0.4)
+    height: 1.5em
+    max-width: 15em
+  .els, #contexts
+    float: left
+    width: 50%
+  p
+    display: inline-block
+    background: #444
+    color: #444
+    border-radius: 2px
+    margin: 2px
+    width: 10px
+    

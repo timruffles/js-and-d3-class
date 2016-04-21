@@ -1,0 +1,43 @@
+<html>
+
+<head>
+  <meta charset="utf-8"><link rel=stylesheet href=../vendor/foundation/css/foundation.css>
+  <style type="text/css" media="screen">
+    circle {
+      fill: hsl(100, 80%, 80%);
+      transition: all 0.25s;
+    }
+    
+  </style>
+  </head>
+<body>
+
+  <div class=row>
+
+    <ol>
+      <li>Select all <code>circle</code> elements and change their <code>stroke</code> style to red
+      <li>Select second <code>circle</code> and change its <code>r</code> attribute to 500
+      <li>Select third <code>circle</code> and change its <code>cx</code> attribute to 650
+    </ol>
+
+    <svg width=800 height=1000>
+
+      <circle class="first" r=100 cx=150 cy=200></circle>
+
+      <circle class=second r=200 cx=300 cy=350></circle>
+
+      <circle class=third r=50 cx=470 cy=250></circle>
+
+    </svg>
+
+
+  </div>
+	
+
+
+<script src="d3.js"></script>
+<script src="viz.js"></script>
+<script src="demo.js"></script>
+
+</body>
+</html>
